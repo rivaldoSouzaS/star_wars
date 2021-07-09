@@ -1,0 +1,166 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  //background: url("../imagens/fundo2.jpg") no-repeat center/cover; ou
+  background: url("../imagens/fundo1.jpg");
+  //background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh; //toda altura da tela;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .overlay {
+    display: none;
+  }
+
+  .navbar__logo img {
+    padding-left: 15px;
+    padding-top: 5px;
+  }
+
+  .mavbar__hamburguer {
+    display: none;
+    height: 33px;
+    width: 50px;
+    right: 20px;
+    background-image: url("../imagens/hamburger-icon.png");
+  }
+
+  .navbar__link a {
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    padding-top: 1%;
+    margin-left: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #fdea21;
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 25px;
+
+    &:last-child {
+      margin-right: 15px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 50px 10px 0px 10px;
+    .card__titulo {
+      background: rgba(253, 234, 33, 0.8);
+      color: white;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .card__text {
+      color: #fdea21;
+      padding: 5px;
+      font-size: 20px;
+    }
+  }
+}
+
+.container .card {
+  &:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and(max-width:800px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+
+    .navbar__link {
+      margin-top: 50px;
+    }
+  }
+}
+
+@media screen and(max-width:520px) {
+  .navbar {
+    flex-direction: row;
+
+    .overlay {
+      position: fixed;
+      display: flex;
+      left: 100%; //todo jogado a esquerda
+      top: 0px;
+      height: 100%;
+      width: 0%; //sem largura nenhuma
+      background: yellow;
+      opacity: 0.5;
+      transition: 0.6s;
+    }
+
+    /*para o transition funciar o elemento tem que ter um display 
+    diferente de none*/
+
+    .navbar__link {
+      position: fixed;
+      display: flex; /*escondendo o menu*/
+      flex-direction: column;
+      top: 0px;
+      right: 0px;
+      width: 0%; /*a largura esta zerada pra o menu nao aparecer na tela*/
+      margin-top: 0px;
+      height: 100%;
+      background: #fdea21;
+      align-items: center;
+      overflow: hidden;
+      transition: 0.6s;
+    }
+
+    .mavbar__links--active {
+      display: flex;
+      width: 60%; /*essa largura sera aplicada em 0.6s*/
+    }
+
+    .mavbar__overlay--active {
+      display: flex;
+      width: 40%; //aplica a largura de 40% gradativamente
+      left: 0px;
+      cursor: pointer;
+    }
+
+    .mavbar__hamburguer {
+      display: flex;
+      cursor: pointer;
+    }
+
+    .navbar__link a {
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      &:first-child {
+        margin-top: 50px;
+      }
+    }
+  }
+}

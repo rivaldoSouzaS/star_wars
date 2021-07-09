@@ -1,0 +1,198 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: url("../imagens/fundo1.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .overlay {
+  display: none;
+}
+
+.navbar .navbar__logo img {
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+.navbar .mavbar__hamburguer {
+  display: none;
+  height: 33px;
+  width: 50px;
+  right: 20px;
+  background-image: url("../imagens/hamburger-icon.png");
+}
+
+.navbar .navbar__link a {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  padding-top: 1%;
+  margin-left: 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: #fdea21;
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.navbar .navbar__link a:last-child {
+  margin-right: 15px;
+}
+
+.navbar .navbar__link a:hover {
+  opacity: 1;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.container .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 300px;
+  margin: 50px 10px 0px 10px;
+}
+
+.container .card .card__titulo {
+  background: rgba(253, 234, 33, 0.8);
+  color: white;
+  text-align: center;
+  font-size: 25px;
+}
+
+.container .card .card__text {
+  color: #fdea21;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.container .card:last-child {
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 800px) {
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .navbar .navbar__link {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .navbar {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    /*para o transition funciar o elemento tem que ter um display 
+    diferente de none*/
+  }
+  .navbar .overlay {
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    left: 100%;
+    top: 0px;
+    height: 100%;
+    width: 0%;
+    background: yellow;
+    opacity: 0.5;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+  }
+  .navbar .navbar__link {
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*escondendo o menu*/
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: 0px;
+    right: 0px;
+    width: 0%;
+    /*a largura esta zerada pra o menu nao aparecer na tela*/
+    margin-top: 0px;
+    height: 100%;
+    background: #fdea21;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+  }
+  .navbar .mavbar__links--active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 60%;
+    /*essa largura sera aplicada em 0.6s*/
+  }
+  .navbar .mavbar__overlay--active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 40%;
+    left: 0px;
+    cursor: pointer;
+  }
+  .navbar .mavbar__hamburguer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+  }
+  .navbar .navbar__link a:last-child {
+    margin-right: 0px;
+  }
+  .navbar .navbar__link a:first-child {
+    margin-top: 50px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
